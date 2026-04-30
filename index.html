@@ -249,6 +249,43 @@
   .step-title { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
   .step-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
 
+  /* ── QUICK BOOK ── */
+  #quick-book {
+    background: var(--navy);
+    padding: 70px 5%;
+    border-top: 1px solid var(--border);
+  }
+  .quick-book-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  .quick-book-inner .section-title { margin-bottom: 10px; }
+  .quick-book-sub { color: var(--gray); font-size: 16px; margin-bottom: 40px; line-height: 1.6; }
+  .quick-book-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 28px;
+  }
+  .qb-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: all .2s; text-decoration: none;
+  }
+  .qb-card:hover { border-color: rgba(59,158,218,0.5); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.3); }
+  .qb-card-top { display: flex; align-items: center; justify-content: space-between; }
+  .qb-name { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 1px; color: var(--white); }
+  .qb-icon { font-size: 22px; }
+  .qb-tiers { display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; }
+  .qb-tier { font-size: 12px; color: var(--gray); background: rgba(255,255,255,0.05); padding: 3px 10px; border-radius: 20px; }
+  .qb-cta {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--blue); color: #fff; border-radius: 8px; padding: 11px;
+    font-size: 14px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+    margin-top: 4px; transition: background .2s;
+  }
+  .qb-card:hover .qb-cta { background: var(--blue-light); }
+  .qb-deposit { font-size: 11px; color: var(--gray); }
+  .qb-deposit span { color: var(--blue); font-weight: 600; }
+  .quick-book-note { font-size: 13px; color: var(--gray); }
+  .quick-book-note a { color: var(--blue); text-decoration: none; }
+
   /* ── BOOKING ── */
   #booking { background: var(--navy-mid); }
   .booking-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; margin-top: 50px; }
@@ -386,7 +423,7 @@
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#booking">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="scrollTo('#booking')">Book Now</button>
+  <a href="#quick-book" class="nav-cta">Book Now</a>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -396,7 +433,7 @@
   <a href="#process" onclick="toggleMenu()">How It Works</a>
   <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
   <a href="#booking" onclick="toggleMenu()">Contact</a>
-  <button class="btn-primary" onclick="scrollTo('#booking');toggleMenu()">Book Now</button>
+  <a href="#quick-book" class="btn-primary" onclick="toggleMenu()">Book Now</a>
 </div>
 
 <!-- HERO -->
@@ -404,25 +441,25 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-badge">✦ Premium Auto Detailing</div>
+    <div class="hero-badge">✦ Premium Mobile Auto Detailing</div>
     <h1 class="fade-in">YOUR CAR<br>DESERVES <em>MORE.</em></h1>
-    <p class="hero-sub fade-in fade-in-delay">Professional-grade detailing that brings back the showroom shine. Interior, exterior, ceramic coatings — we treat every vehicle like it's ours.</p>
+    <p class="hero-sub fade-in fade-in-delay">Professional mobile detailing — we come to you. Interior, exterior, and hybrid ceramic spray protection. Every car treated like it's our own.</p>
     <div class="hero-btns fade-in fade-in-delay2">
-      <a href="#booking" class="btn-primary">Book Your Detail →</a>
+      <a href="#quick-book" class="btn-primary">⚡ Book in 60 Seconds</a>
       <a href="#offer" class="btn-outline">Get 20% Off First Visit</a>
     </div>
     <div class="hero-stats fade-in fade-in-delay2">
       <div>
-        <div class="stat-num">500<span>+</span></div>
-        <div class="stat-label">Happy Clients</div>
+        <div class="stat-num">20<span>+</span></div>
+        <div class="stat-label">Cars Detailed</div>
       </div>
       <div>
         <div class="stat-num">5<span>★</span></div>
-        <div class="stat-label">Avg. Rating</div>
+        <div class="stat-label">Happy Clients</div>
       </div>
       <div>
-        <div class="stat-num">3<span>+</span></div>
-        <div class="stat-label">Years in Business</div>
+        <div class="stat-num">100<span>%</span></div>
+        <div class="stat-label">Satisfaction Rate</div>
       </div>
     </div>
   </div>
@@ -590,6 +627,67 @@
   </div>
 </section>
 
+<!-- QUICK BOOK -->
+<section id="quick-book">
+  <div class="quick-book-inner">
+    <span class="section-tag">⚡ Instant Booking</span>
+    <h2 class="section-title">PICK A SERVICE.<br>PAY YOUR DEPOSIT.<br>YOU'RE BOOKED.</h2>
+    <p class="quick-book-sub">No back-and-forth. Select your package below, pay a small deposit to lock in your spot, and we'll reach out to confirm your time. Takes under 60 seconds.</p>
+    <div class="quick-book-grid">
+
+      <!-- Interior Cleaning -->
+      <a href="YOUR_STRIPE_LINK_INTERIOR" target="_blank" class="qb-card">
+        <div class="qb-card-top">
+          <div class="qb-name">Interior Cleaning</div>
+          <div class="qb-icon">🪑</div>
+        </div>
+        <div class="qb-tiers">
+          <span class="qb-tier">Sedan $120+</span>
+          <span class="qb-tier">SUV $150+</span>
+          <span class="qb-tier">Large SUV $180+</span>
+        </div>
+        <div class="qb-deposit">Deposit: <span>$25 to book</span></div>
+        <div class="qb-cta">Book Now → Pay $25 Deposit</div>
+      </a>
+
+      <!-- Exterior Wash -->
+      <a href="YOUR_STRIPE_LINK_EXTERIOR" target="_blank" class="qb-card">
+        <div class="qb-card-top">
+          <div class="qb-name">Exterior Wash</div>
+          <div class="qb-icon">🚿</div>
+        </div>
+        <div class="qb-tiers">
+          <span class="qb-tier">Sedan $90+</span>
+          <span class="qb-tier">SUV $110+</span>
+          <span class="qb-tier">Large SUV $130+</span>
+        </div>
+        <div class="qb-deposit">Deposit: <span>$25 to book</span></div>
+        <div class="qb-cta">Book Now → Pay $25 Deposit</div>
+      </a>
+
+      <!-- Full Detail -->
+      <a href="YOUR_STRIPE_LINK_FULLDETAIL" target="_blank" class="qb-card" style="border-color:rgba(59,158,218,0.4); background:rgba(59,158,218,0.05);">
+        <div class="qb-card-top">
+          <div class="qb-name">Full Detail ⭐</div>
+          <div class="qb-icon">✨</div>
+        </div>
+        <div class="qb-tiers">
+          <span class="qb-tier">Sedan $160+</span>
+          <span class="qb-tier">SUV $200+</span>
+          <span class="qb-tier">Large SUV $260+</span>
+        </div>
+        <div class="qb-deposit">Deposit: <span>$30 to book</span></div>
+        <div class="qb-cta">Book Now → Pay $30 Deposit</div>
+      </a>
+
+    </div>
+    <p class="quick-book-note">
+      🔒 Deposit is non-refundable &nbsp;·&nbsp; Final price based on vehicle condition &nbsp;·&nbsp;
+      Need help? <a href="tel:8019480819">Call us</a> or <a href="#booking">fill out the full form</a>
+    </p>
+  </div>
+</section>
+
 <!-- BOOKING -->
 <section id="booking">
   <span class="section-tag">Reserve Your Spot</span>
@@ -704,34 +802,34 @@
   <div class="testi-grid">
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <p class="testi-text">"I've tried several detailers in the valley and Autovibra is hands down the best. My 4Runner looked brand new inside and out. Booking was super easy too."</p>
+      <p class="testi-text">"My 4Runner was embarrassingly dirty inside — dog hair everywhere, muddy seats, the works. He came to my house and knocked it out in a few hours. Looked completely different when he was done. Genuinely impressed."</p>
       <div class="testi-author">
         <div class="testi-avatar">MR</div>
         <div>
           <div class="testi-name">Marcus R.</div>
-          <div class="testi-car">2019 Toyota 4Runner</div>
+          <div class="testi-car">2018 Toyota 4Runner — Full Detail</div>
         </div>
       </div>
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <p class="testi-text">"Got the exterior wash with the ceramic spray and I'm obsessed. Water beads right off and it still looks stunning weeks later. Worth every penny."</p>
+      <p class="testi-text">"Super easy to book and he showed up on time which already puts him above most. Did an exterior wash on my A4 with the ceramic spray — car was beading water for weeks. Will be a regular customer."</p>
       <div class="testi-author">
         <div class="testi-avatar">JL</div>
         <div>
           <div class="testi-name">Jessica L.</div>
-          <div class="testi-car">2022 Audi A4</div>
+          <div class="testi-car">2021 Audi A4 — Exterior Wash</div>
         </div>
       </div>
     </div>
     <div class="testi-card">
       <div class="stars">★★★★★</div>
-      <p class="testi-text">"They came to my house which was incredible. The interior deep clean removed a stain I thought was permanent. Highly recommend to anyone in SLC."</p>
+      <p class="testi-text">"I've got two kids and my Tahoe showed it. Got the interior cleaning done and I couldn't believe it. The steam treatment got out stains I thought were permanent. Affordable for what you get and the mobile service is a huge plus."</p>
       <div class="testi-author">
         <div class="testi-avatar">DK</div>
         <div>
           <div class="testi-name">Derek K.</div>
-          <div class="testi-car">2021 Ford F-150</div>
+          <div class="testi-car">2020 Chevy Tahoe — Interior Cleaning</div>
         </div>
       </div>
     </div>
