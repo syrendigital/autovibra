@@ -265,6 +265,16 @@
     border-radius: 16px; padding: 36px 32px;
   }
   .booking-form-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; margin-bottom: 26px; }
+  .deposit-box {
+    display: none; background: rgba(59,158,218,0.08);
+    border: 1px solid rgba(59,158,218,0.35); border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 16px;
+  }
+  .deposit-box.visible { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .deposit-label { font-size: 13px; color: var(--gray); line-height: 1.5; }
+  .deposit-label strong { color: var(--white); display: block; font-size: 14px; margin-bottom: 2px; }
+  .deposit-amount { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--blue); letter-spacing: 1px; white-space: nowrap; }
+  .deposit-note { font-size: 11px; color: var(--gray); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
   .form-group { margin-bottom: 16px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 7px; }
@@ -659,12 +669,29 @@
           <label>Notes (optional)</label>
           <textarea id="b-notes" placeholder="Any special requests, stains, or info about your vehicle..."></textarea>
         </div>
-        <button class="btn-submit" onclick="submitBooking()">Request Appointment →</button>
+
+        <!-- DEPOSIT BOX — appears when service is selected -->
+        <div class="deposit-box" id="deposit-box">
+          <div class="deposit-label">
+            <strong>🔒 Non-Refundable Deposit Required</strong>
+            Secures your appointment. Applied toward your total service cost.
+          </div>
+          <div class="deposit-amount" id="deposit-amount">$25</div>
+          <div class="deposit-note" style="width:100%">
+            After submitting, you'll be taken to our secure Stripe checkout to pay the deposit.
+            The remaining balance is due at time of service.
+          </div>
+        </div>
+
+        <button class="btn-submit" onclick="submitBooking()">Continue to Pay Deposit →</button>
+        <p style="font-size:12px;color:var(--gray);text-align:center;margin-top:10px;">
+          🔐 Secure checkout powered by Stripe
+        </p>
       </div>
       <div id="booking-success">
         <div class="success-icon">🎉</div>
-        <h3>YOU'RE ALL SET!</h3>
-        <p>Thanks! We'll text and email you within a few hours to confirm your appointment. See you soon.</p>
+        <h3>ALMOST THERE!</h3>
+        <p>Your details are saved. You're being redirected to secure payment to lock in your deposit...</p>
       </div>
     </div>
   </div>
@@ -786,7 +813,7 @@
   // 1. Go to formspree.io → Sign up free → New Form
   // 2. Copy your form ID (looks like: xyzabcde)
   // 3. Replace YOUR_FORMSPREE_ID below (both forms can share one endpoint)
-  const FORMSPREE_ID = 'mvzlpyaz';
+  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
 
   // Claim offer (lead capture funnel)
   async function claimOffer() {
@@ -822,7 +849,54 @@
     }
   }
 
-  // Submit booking form
+  // ── STRIPE PAYMENT LINKS ────────────────────────────────────────
+  // For each deposit tier, create a Payment Link in your Stripe dashboard
+  // and paste the URLs below. You can use ONE link for all if deposit is the same amount.
+  //
+  // How to create a Stripe Payment Link:
+  // 1. Go to dashboard.stripe.com → Payment Links → + New
+  // 2. Add a product called "Booking Deposit" → set the price (e.g. $25)
+  // 3. Copy the link and paste it below
+  //
+  const STRIPE_LINKS = {
+    'Interior Cleaning – Sedan ($120+)':       'YOUR_STRIPE_LINK',
+    'Interior Cleaning – SUV ($150+)':         'YOUR_STRIPE_LINK',
+    'Interior Cleaning – Large SUV ($180+)':   'YOUR_STRIPE_LINK',
+    'Exterior Wash – Sedan ($90+)':            'YOUR_STRIPE_LINK',
+    'Exterior Wash – SUV/Truck ($110+)':       'YOUR_STRIPE_LINK',
+    'Exterior Wash – Large SUV ($130+)':       'YOUR_STRIPE_LINK',
+    'Full Detail – Sedan ($160+)':             'YOUR_STRIPE_LINK',
+    'Full Detail – SUV/Truck ($200+)':         'YOUR_STRIPE_LINK',
+    'Full Detail – Large SUV/Van ($260+)':     'YOUR_STRIPE_LINK',
+  };
+
+  // Deposit amounts per service (adjust as you like)
+  const DEPOSIT_AMOUNTS = {
+    'Interior Cleaning – Sedan ($120+)':       '$25',
+    'Interior Cleaning – SUV ($150+)':         '$25',
+    'Interior Cleaning – Large SUV ($180+)':   '$25',
+    'Exterior Wash – Sedan ($90+)':            '$25',
+    'Exterior Wash – SUV/Truck ($110+)':       '$25',
+    'Exterior Wash – Large SUV ($130+)':       '$25',
+    'Full Detail – Sedan ($160+)':             '$30',
+    'Full Detail – SUV/Truck ($200+)':         '$30',
+    'Full Detail – Large SUV/Van ($260+)':     '$30',
+  };
+
+  // Show deposit box when service is selected
+  document.getElementById('b-service').addEventListener('change', function() {
+    const val = this.value;
+    const box = document.getElementById('deposit-box');
+    const amt = document.getElementById('deposit-amount');
+    if (val && DEPOSIT_AMOUNTS[val]) {
+      amt.textContent = DEPOSIT_AMOUNTS[val];
+      box.classList.add('visible');
+    } else {
+      box.classList.remove('visible');
+    }
+  });
+
+  // Submit booking form → Formspree → Stripe
   async function submitBooking() {
     const fname   = document.getElementById('b-fname').value.trim();
     const lname   = document.getElementById('b-lname').value.trim();
@@ -838,29 +912,39 @@
     }
 
     const btn = document.querySelector('.btn-submit');
-    btn.textContent = 'Sending…'; btn.disabled = true;
+    btn.textContent = 'Processing…'; btn.disabled = true;
 
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          _subject: `🚗 New Booking Request — ${fname} ${lname}`,
+          _subject: `🚗 New Booking — ${fname} ${lname} | ${service}`,
           name: `${fname} ${lname}`, phone, email, vehicle, service,
-          preferred_date: date || 'Not specified', notes: notes || 'None',
-          form: 'Booking Form'
+          preferred_date: date || 'Not specified',
+          deposit: DEPOSIT_AMOUNTS[service] || '$25',
+          notes: notes || 'None', form: 'Booking Form'
         })
       });
+
       if (res.ok) {
         document.getElementById('booking-form-content').style.display = 'none';
         document.getElementById('booking-success').style.display = 'block';
-        showToast('✅ Booking received! We\'ll be in touch soon.');
-      } else {
-        throw new Error();
-      }
+        // Redirect to Stripe after 2 seconds
+        const stripeUrl = STRIPE_LINKS[service];
+        if (stripeUrl && stripeUrl !== 'YOUR_STRIPE_LINK') {
+          setTimeout(() => { window.location.href = stripeUrl; }, 2000);
+        } else {
+          // Stripe not set up yet — show fallback
+          setTimeout(() => {
+            document.querySelector('#booking-success p').textContent =
+              'Booking received! We\'ll contact you at ' + phone + ' to confirm and collect the deposit. See you soon!';
+          }, 100);
+        }
+      } else { throw new Error(); }
     } catch {
-      showToast('⚠️ Couldn\'t send. Please call us at (801) 948-0819');
-      btn.textContent = 'Request Appointment →'; btn.disabled = false;
+      showToast('⚠️ Something went wrong. Please call (801) 948-0819');
+      btn.textContent = 'Continue to Pay Deposit →'; btn.disabled = false;
     }
   }
 
