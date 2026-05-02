@@ -3,10 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Autovibra — Premium Auto Detailing</title>
+<title>Autovibra — #1 Mobile Auto Detailing in Salt Lake City, Utah</title>
+<meta name="description" content="Autovibra offers professional mobile auto detailing in Salt Lake City, Utah. Interior cleaning, exterior wash & full detail packages. We come to you. Book online today!">
+<meta name="keywords" content="mobile auto detailing Salt Lake City, car detailing Utah, auto detailing SLC, mobile car wash Salt Lake City, interior car cleaning Utah, exterior wash Salt Lake City, full detail Utah, ceramic spray sealant SLC, car detailing near me Utah, Autovibra detailing">
+<meta name="author" content="Autovibra Detailing">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://autovibra.vercel.app">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://autovibra.vercel.app">
+<meta property="og:title" content="Autovibra — Mobile Auto Detailing Salt Lake City, Utah">
+<meta property="og:description" content="Professional mobile detailing in SLC — we come to you. Interior from $120, Exterior from $90, Full Detail from $160. Book online & pay deposit today.">
+<meta property="og:image" content="https://autovibra.vercel.app/preview.png">
+
+<!-- Local Business Schema for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Autovibra Detailing",
+  "description": "Professional mobile auto detailing service in Salt Lake City, Utah. Interior cleaning, exterior wash, and full detail packages. We come to you.",
+  "url": "https://autovibra.vercel.app",
+  "telephone": "+18019480819",
+  "email": "sam.faddoulbiz@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Salt Lake City",
+    "addressRegion": "UT",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 40.7608,
+    "longitude": -111.8910
+  },
+  "areaServed": ["Salt Lake City", "West Valley City", "Sandy", "Provo", "Orem", "Ogden", "Draper", "South Jordan", "Lehi", "Murray", "Utah"],
+  "priceRange": "$$",
+  "openingHours": "Mo-Sa 08:00-18:00",
+  "sameAs": ["https://www.facebook.com/AutovibraDetailing"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Auto Detailing Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Cleaning"}, "price": "120", "priceCurrency": "USD"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Wash"}, "price": "90", "priceCurrency": "USD"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}, "price": "160", "priceCurrency": "USD"}
+    ]
+  }
+}
+</script>
+
 <!-- Meta Pixel Code -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1463829372148187');fbq('track','PageView');</script>
-<noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"/></noscript>
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1463829372148187');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
+/></noscript>
 <!-- End Meta Pixel Code -->
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -388,7 +451,64 @@
   }
   #toast.show { transform: translateY(0); opacity: 1; }
 
-  /* ── ANIMATIONS ── */
+  .nav-fb {
+    display: flex; align-items: center; gap: 7px;
+    background: #1877F2; color: #fff; border: none;
+    padding: 10px 16px; border-radius: 6px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+    cursor: pointer; text-decoration: none; transition: all .2s;
+  }
+  .nav-fb:hover { background: #1565d8; transform: translateY(-1px); }
+  .nav-fb svg { width: 16px; height: 16px; }
+  /* ── Blog section ── */
+  #blog { background: var(--navy-mid); }
+  .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 50px; }
+  .blog-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden; transition: all .25s; cursor: pointer;
+  }
+  .blog-card:hover { border-color: rgba(59,158,218,0.35); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+  .blog-thumb {
+    height: 8px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+  }
+  .blog-body { padding: 24px 22px; }
+  .blog-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .blog-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; line-height: 1.15; margin-bottom: 10px; }
+  .blog-excerpt { font-size: 13px; color: var(--gray); line-height: 1.7; margin-bottom: 16px; }
+  .blog-meta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--gray); }
+  .blog-read { color: var(--blue); font-weight: 700; font-size: 13px; cursor: pointer; }
+
+  /* Blog modal */
+  .blog-modal {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 20px;
+  }
+  .blog-modal.open { display: flex; }
+  .blog-modal-inner {
+    background: var(--navy-mid); border: 1px solid var(--border);
+    border-radius: 16px; max-width: 680px; width: 100%;
+    max-height: 85vh; overflow-y: auto; padding: 40px 36px; position: relative;
+  }
+  .blog-modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(255,255,255,0.08); border: none; color: var(--white);
+    width: 32px; height: 32px; border-radius: 50%; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .blog-modal-tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; }
+  .blog-modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 1px; line-height: 1.1; margin-bottom: 20px; }
+  .blog-modal-content { font-size: 15px; color: var(--gray); line-height: 1.85; }
+  .blog-modal-content h3 { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 1px; color: var(--white); margin: 24px 0 10px; }
+  .blog-modal-content p { margin-bottom: 14px; }
+  .blog-modal-cta {
+    display: block; text-align: center; margin-top: 28px;
+    background: var(--blue); color: #fff; padding: 14px 28px;
+    border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 15px;
+    transition: background .2s;
+  }
+  .blog-modal-cta:hover { background: var(--blue-light); }
   .fade-in {
     opacity: 0; transform: translateY(30px);
     animation: fadeIn .8s ease forwards;
@@ -423,20 +543,31 @@
   <div class="nav-logo">Auto<span>V</span>ibra</div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#process">How It Works</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#booking">Contact</a></li>
   </ul>
-  <a href="#quick-book" class="nav-cta">Book Now</a>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <a href="https://www.facebook.com/AutovibraDetailing" target="_blank" title="Follow us on Facebook" style="display:flex;align-items:center;color:#1877F2;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+      </svg>
+    </a>
+    <a href="#quick-book" class="nav-cta">Book Now</a>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#process" onclick="toggleMenu()">How It Works</a>
+  <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
   <a href="#booking" onclick="toggleMenu()">Contact</a>
+  <a href="https://www.facebook.com/AutovibraDetailing" target="_blank" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--gray);">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Follow on Facebook
+  </a>
   <a href="#quick-book" class="btn-primary" onclick="toggleMenu()">Book Now</a>
 </div>
 
@@ -840,6 +971,66 @@
   </div>
 </section>
 
+<!-- BLOG -->
+<section id="blog">
+  <span class="section-tag">Tips & Insights</span>
+  <h2 class="section-title">DETAILING BLOG</h2>
+  <p class="section-sub">Expert tips, local guides, and everything you need to keep your car looking its best in Utah.</p>
+  <div class="blog-grid">
+
+    <div class="blog-card" onclick="openBlog(0)">
+      <div class="blog-thumb"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Salt Lake City · Guide</div>
+        <div class="blog-title">Why Utah Car Owners Need Regular Detailing More Than Most States</div>
+        <div class="blog-excerpt">Utah's road salt, extreme UV rays, and dust storms do more damage to your car's paint than most people realize. Here's what every SLC car owner should know.</div>
+        <div class="blog-meta">
+          <span>5 min read</span>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openBlog(1)">
+      <div class="blog-thumb"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Mobile Detailing · Utah</div>
+        <div class="blog-title">Mobile Detailing vs. Car Wash: What's Actually Worth It in Salt Lake City</div>
+        <div class="blog-excerpt">Drive-through car washes are everywhere in SLC but they're quietly scratching your paint. We break down the real difference and what you're actually paying for.</div>
+        <div class="blog-meta">
+          <span>4 min read</span>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card" onclick="openBlog(2)">
+      <div class="blog-thumb"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Ceramic Coating · Utah</div>
+        <div class="blog-title">Does Ceramic Spray Sealant Actually Work in Utah's Harsh Climate?</div>
+        <div class="blog-excerpt">Between the intense summer sun and winter road salt, Utah is brutal on paint. We tested hybrid ceramic spray sealant across different vehicles and conditions in SLC.</div>
+        <div class="blog-meta">
+          <span>6 min read</span>
+          <span class="blog-read">Read More →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOG MODALS -->
+<div class="blog-modal" id="blogModal">
+  <div class="blog-modal-inner">
+    <button class="blog-modal-close" onclick="closeBlog()">✕</button>
+    <div class="blog-modal-tag" id="modal-tag"></div>
+    <div class="blog-modal-title" id="modal-title"></div>
+    <div class="blog-modal-content" id="modal-content"></div>
+    <a href="#quick-book" class="blog-modal-cta" onclick="closeBlog()">⚡ Book Your Detail Now →</a>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -860,6 +1051,7 @@
       <ul>
         <li><a href="#process">How It Works</a></li>
         <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#offer">Special Offer</a></li>
         <li><a href="#booking">Book Now</a></li>
       </ul>
@@ -869,6 +1061,7 @@
       <ul>
         <li><a href="tel:8019480819">(801) 948-0819</a></li>
         <li><a href="mailto:sam.faddoulbiz@gmail.com">sam.faddoulbiz@gmail.com</a></li>
+        <li><a href="https://www.facebook.com/AutovibraDetailing" target="_blank">📘 Autovibra Detailing</a></li>
         <li><a href="#">Salt Lake City, UT</a></li>
         <li><a href="#">Mon–Sat 8am–6pm</a></li>
       </ul>
@@ -1050,7 +1243,73 @@
     }
   }
 
-  // Set min date for date picker
+  // Blog articles
+  const blogs = [
+    {
+      tag: 'Salt Lake City · Guide',
+      title: 'Why Utah Car Owners Need Regular Detailing More Than Most States',
+      content: `
+        <p>If you live in Salt Lake City or anywhere in Utah, your car is working overtime. Between the road salt in winter, intense UV index in summer, and constant dust and construction debris — Utah is one of the harshest environments for your vehicle's paint and interior in the entire country.</p>
+        <h3>Road Salt Is Destroying Your Undercarriage</h3>
+        <p>UDOT applies thousands of tons of road salt every winter across the Wasatch Front. That salt doesn't just stay on the road — it coats the underside of your vehicle, works into wheel wells, and accelerates rust and corrosion. Regular exterior washes with proper rinse-off are the only way to fight it. Most drive-through car washes in SLC don't rinse the undercarriage properly.</p>
+        <h3>Utah's UV Index Is Brutal</h3>
+        <p>Salt Lake City sits at 4,300 feet elevation. The higher you go, the thinner the atmosphere, and the more UV radiation hits your vehicle. UV rays fade paint, crack dashboard plastic, and dry out leather seats. A proper exterior detail with ceramic spray sealant adds a UV-blocking layer that protects your paint for months.</p>
+        <h3>Dust and Construction Debris</h3>
+        <p>Utah has been in a construction boom for years. I-15, 2100 South, Bangerter Highway — everywhere you drive, there's construction debris in the air. Fine particles of concrete, sand, and asphalt land on your paint and act like sandpaper every time it rains or you wipe your car down without washing it first.</p>
+        <h3>How Often Should Utah Car Owners Detail?</h3>
+        <p>For most vehicles in the Salt Lake City area, we recommend a full exterior wash every 3–4 weeks during winter months and every 6–8 weeks in summer. A full interior and exterior detail at least twice per year is ideal — spring to remove winter salt damage, and fall before the next winter season begins.</p>
+        <p>Autovibra offers mobile detailing throughout Salt Lake City and surrounding areas including Sandy, Draper, South Jordan, Murray, and West Valley City. We come to your home, apartment, or workplace — no drop-off needed.</p>
+      `
+    },
+    {
+      tag: 'Mobile Detailing · Utah',
+      title: 'Mobile Detailing vs. Car Wash: What\'s Actually Worth It in Salt Lake City',
+      content: `
+        <p>Salt Lake City has no shortage of drive-through car washes. They're fast, cheap, and convenient. But if you actually care about your paint, they might be doing more damage than good. Here's what's really happening when you pull through that tunnel.</p>
+        <h3>What Automated Car Washes Actually Do to Your Paint</h3>
+        <p>The spinning brushes and cloth strips in automated car washes pick up dirt from previous cars and drag it across your paint. Every pass leaves micro-scratches — called swirl marks — that dull your clear coat over time. You won't see them immediately, but in direct sunlight your paint will look hazy and aged.</p>
+        <h3>Touchless Washes Aren't Much Better</h3>
+        <p>Touchless car washes use high-pressure water and strong chemicals to remove dirt without brushes. The chemicals are often harsh enough to strip any wax or sealant protection you've applied, leaving your paint unprotected and sometimes even etching the clear coat if left on too long.</p>
+        <h3>What Mobile Detailing Actually Includes</h3>
+        <p>When Autovibra details your vehicle in Salt Lake City, we use a proper two-bucket wash method, pH-balanced soap, and microfiber mitts that are clean for every car. We rinse thoroughly — including wheel wells where road salt hides — and finish with a hybrid ceramic spray sealant that protects your paint for months.</p>
+        <p>Your interior gets a deep vacuum, steam treatment, and wipe-down with products safe for your specific surface type — whether that's leather, fabric, or synthetic trim.</p>
+        <h3>The Real Cost Comparison</h3>
+        <p>A drive-through wash in SLC costs $12–25. Do that weekly and you're spending $600–1,300 per year. A professional mobile detail with Autovibra starts at $90 for an exterior wash and $120 for interior — done properly, that protects your vehicle for weeks and keeps your resale value significantly higher.</p>
+        <p>Ready to see the difference? We serve Salt Lake City, Draper, Sandy, South Jordan, Murray, West Valley, and surrounding Utah communities.</p>
+      `
+    },
+    {
+      tag: 'Ceramic Coating · Utah',
+      title: 'Does Ceramic Spray Sealant Actually Work in Utah\'s Harsh Climate?',
+      content: `
+        <p>Ceramic coatings have become one of the most popular topics in auto detailing — and for good reason. But there's a lot of confusion between professional ceramic coatings that cost $500–1,500 and hybrid ceramic spray sealants that are applied during a standard detail. Here's what we use at Autovibra and what it actually does for your vehicle in Utah's climate.</p>
+        <h3>What Is a Hybrid Ceramic Spray Sealant?</h3>
+        <p>A hybrid ceramic spray sealant combines traditional carnauba wax with ceramic SiO2 (silicon dioxide) compounds. It doesn't chemically bond to your paint the way a professional ceramic coating does, but it creates a strong hydrophobic barrier that repels water, road grime, and UV rays for several months at a time.</p>
+        <h3>How It Performs in Utah Specifically</h3>
+        <p>We've applied ceramic spray sealant on vehicles across Salt Lake City through all four seasons. In winter, it significantly reduces road salt adhesion — dirt and salt rinse off much more easily than on an unprotected vehicle. In summer, the UV-blocking properties keep your paint from oxidizing and fading as quickly under Utah's intense high-altitude sun.</p>
+        <h3>Water Beading You Can Actually See</h3>
+        <p>One of the most visible benefits is hydrophobic water beading. Rain, car wash water, and sprinklers roll right off a freshly treated surface rather than sitting and leaving water spots. In Utah where hard water is common, this is especially useful for preventing mineral deposits on your paint.</p>
+        <h3>How Long Does It Last?</h3>
+        <p>Realistically, a quality hybrid ceramic spray applied correctly lasts 2–4 months in normal Utah driving conditions. It's included in every exterior wash and full detail at Autovibra — no upcharge. If you want longer-lasting protection, a professional ceramic coating is a separate service we can discuss.</p>
+        <p>Book an exterior wash or full detail with Autovibra today and see the ceramic spray results for yourself. We serve Salt Lake City, Sandy, Draper, Provo, Orem, and all of the Wasatch Front.</p>
+      `
+    }
+  ];
+
+  function openBlog(i) {
+    document.getElementById('modal-tag').textContent = blogs[i].tag;
+    document.getElementById('modal-title').textContent = blogs[i].title;
+    document.getElementById('modal-content').innerHTML = blogs[i].content;
+    document.getElementById('blogModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBlog() {
+    document.getElementById('blogModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('blogModal').addEventListener('click', function(e) {
+    if (e.target === this) closeBlog();
+  });
   const dateInput = document.getElementById('b-date');
   const today = new Date();
   today.setDate(today.getDate() + 1);
