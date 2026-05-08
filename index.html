@@ -21,12 +21,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "AutoRepair",
   "name": "Autovibra Detailing",
   "description": "Professional mobile auto detailing service in Salt Lake City, Utah. Interior cleaning, exterior wash, and full detail packages. We come to you.",
   "url": "https://autovibra.vercel.app",
   "telephone": "+18019480819",
   "email": "sam.faddoulbiz@gmail.com",
+  "image": "https://autovibra.vercel.app/preview.png",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Salt Lake City",
@@ -40,17 +41,73 @@
   },
   "areaServed": ["Salt Lake City", "West Valley City", "Sandy", "Provo", "Orem", "Ogden", "Draper", "South Jordan", "Lehi", "Murray", "Utah"],
   "priceRange": "$$",
-  "openingHours": "Mo-Sa 08:00-18:00",
+  "openingHours": ["Mo-Su 08:00-18:00"],
   "sameAs": ["https://www.facebook.com/AutovibraDetailing"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "20",
+    "bestRating": "5"
+  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Auto Detailing Services",
     "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Cleaning"}, "price": "120", "priceCurrency": "USD"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Wash"}, "price": "90", "priceCurrency": "USD"},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}, "price": "160", "priceCurrency": "USD"}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Cleaning", "description": "Deep vacuum, steam treatment, sanitation wipe-down, and odor removal"}, "price": "120", "priceCurrency": "USD"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Wash", "description": "Foam wash, hybrid ceramic spray sealant, wheel and tire cleaning, tire dressing"}, "price": "90", "priceCurrency": "USD"},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail", "description": "Complete interior and exterior detailing — deep clean, restore, and protect"}, "price": "160", "priceCurrency": "USD"}
     ]
   }
+}
+</script>
+
+<!-- FAQ Schema for Google Rich Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you offer mobile auto detailing in Salt Lake City?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Autovibra is a fully mobile detailing service. We come to your home, apartment, or workplace anywhere in Salt Lake City and surrounding Utah areas including Sandy, Draper, South Jordan, Murray, West Valley City, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does car detailing cost in Salt Lake City Utah?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Autovibra offers Interior Cleaning starting at $120 for sedans, Exterior Wash starting at $90 for sedans, and Full Detail starting at $160 for sedans. Prices vary by vehicle size and condition. SUVs and large vehicles are priced higher."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to bring my car anywhere for detailing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Autovibra is a mobile detailing service — we come to you. Just book online, pay a small deposit to secure your appointment, and we'll show up at your location in Salt Lake City or surrounding areas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I book a car detail in Salt Lake City?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can book directly on our website at autovibra.vercel.app. Select your service, pay a small non-refundable deposit via Stripe to secure your spot, and we will contact you to confirm your appointment time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Autovibra serve areas outside Salt Lake City?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Autovibra serves the entire Wasatch Front including Sandy, Draper, South Jordan, Murray, West Valley City, Provo, Orem, Lehi, and Ogden in Utah."
+      }
+    }
+  ]
 }
 </script>
 
@@ -437,7 +494,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
   .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .footer-col ul a { color: var(--gray); text-decoration: none; font-size: 14px; transition: color .2s; }
   .footer-col ul a:hover { color: var(--white); }
-  .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 12px; }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .footer-bottom p { color: var(--gray); font-size: 13px; }
 
   /* ── TOAST ── */
@@ -520,6 +577,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .nav-links, nav > .nav-cta { display: none; }
+    .nav-right-group { display: none !important; }
     .hamburger { display: flex; }
     .booking-layout { grid-template-columns: 1fr; gap: 40px; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -547,7 +605,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#booking">Contact</a></li>
   </ul>
-  <div style="display:flex;gap:10px;align-items:center;">
+  <div class="nav-right-group" style="display:flex;gap:10px;align-items:center;">
     <a href="https://www.facebook.com/AutovibraDetailing" target="_blank" title="Follow us on Facebook" style="display:flex;align-items:center;color:#1877F2;transition:opacity .2s;" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity='1'">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -846,7 +904,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">🕐</div>
-          <span>Mon–Sat: 8am – 6pm</span>
+          <span>Mon–Sun: 8am – 6pm</span>
         </div>
       </div>
     </div>
@@ -1007,7 +1065,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
     <div class="blog-card" onclick="openBlog(2)">
       <div class="blog-thumb"></div>
       <div class="blog-body">
-        <div class="blog-tag">Ceramic Coating · Utah</div>
+        <div class="blog-tag">Exterior Protection · Utah</div>
         <div class="blog-title">Does Ceramic Spray Sealant Actually Work in Utah's Harsh Climate?</div>
         <div class="blog-excerpt">Between the intense summer sun and winter road salt, Utah is brutal on paint. We tested hybrid ceramic spray sealant across different vehicles and conditions in SLC.</div>
         <div class="blog-meta">
@@ -1063,7 +1121,7 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
         <li><a href="mailto:sam.faddoulbiz@gmail.com">sam.faddoulbiz@gmail.com</a></li>
         <li><a href="https://www.facebook.com/AutovibraDetailing" target="_blank">📘 Autovibra Detailing</a></li>
         <li><a href="#">Salt Lake City, UT</a></li>
-        <li><a href="#">Mon–Sat 8am–6pm</a></li>
+        <li><a href="#">Mon–Sun 8am–6pm</a></li>
       </ul>
     </div>
   </div>
@@ -1077,11 +1135,6 @@ src="https://www.facebook.com/tr?id=1463829372148187&ev=PageView&noscript=1"
 <div id="toast"></div>
 
 <script>
-  // Smooth scroll
-  function scrollTo(id) {
-    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
-  }
-
   // Mobile menu
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
