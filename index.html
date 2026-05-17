@@ -128,13 +128,69 @@ section{padding:90px 5%;}
 .form-group input:focus,.form-group select:focus{border-color:var(--blue);}
 .form-group select option{background:var(--navy-mid);color:var(--white);}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.vehicle-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
-.vehicle-option{border:1.5px solid var(--border);border-radius:9px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s;background:rgba(255,255,255,0.02);}
-.vehicle-option:hover{border-color:rgba(59,158,218,0.5);}
-.vehicle-option.selected{border-color:var(--blue);background:rgba(59,158,218,0.1);}
-.vo-icon{font-size:22px;margin-bottom:5px;}
-.vo-label{font-size:11px;font-weight:700;color:var(--gray);letter-spacing:.5px;}
-.vehicle-option.selected .vo-label{color:var(--blue);}
+/* Vehicle cards from autovibra.com */
+.vehicle-grid-new {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.vehicle-card-new {
+  background: #1a1a2e;
+  border: 1.5px solid #2a2a4a;
+  border-radius: 14px;
+  padding: 24px 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: white;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  width: 100%;
+}
+.vehicle-card-new:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59,158,218,0.5);
+  background: rgba(59,158,218,0.08);
+}
+.vehicle-card-new.selected {
+  border-color: var(--blue);
+  background: rgba(59,158,218,0.12);
+}
+.vehicle-card-new .vc-icon {
+  width: 48px;
+  margin: 0 auto 12px;
+}
+.vehicle-card-new svg {
+  width: 100%;
+  height: auto;
+  stroke: white;
+  fill: none;
+  stroke-width: 1.5;
+}
+.vehicle-card-new.selected svg { stroke: var(--blue); }
+.vehicle-card-new h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 8px 0 4px;
+  color: var(--white);
+}
+.vehicle-card-new p {
+  font-size: 11px;
+  opacity: 0.6;
+  margin: 0;
+  color: var(--gray);
+}
+@media (max-width: 600px) {
+  .vehicle-grid-new { grid-template-columns: 1fr; }
+  .vehicle-card-new {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+  }
+  .vehicle-card-new .vc-icon { width: 36px; margin: 0; flex-shrink: 0; }
+}
 .service-options{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
 .service-option{border:1.5px solid var(--border);border-radius:9px;padding:13px 16px;cursor:pointer;transition:all .2s;background:rgba(255,255,255,0.02);display:flex;align-items:center;gap:12px;}
 .service-option:hover{border-color:rgba(59,158,218,0.5);}
@@ -391,16 +447,44 @@ footer{background:var(--navy-mid);border-top:1px solid var(--border);padding:60p
         <div class="step-panel active" id="panel1">
           <div class="form-group">
             <label>Vehicle Type</label>
-            <div class="vehicle-options">
-              <div class="vehicle-option" onclick="selectVehicle(this,'Sedan')">
-                <div class="vo-icon">🚗</div><div class="vo-label">Sedan</div>
-              </div>
-              <div class="vehicle-option" onclick="selectVehicle(this,'SUV / Truck')">
-                <div class="vo-icon">🚙</div><div class="vo-label">SUV/Truck</div>
-              </div>
-              <div class="vehicle-option" onclick="selectVehicle(this,'Large SUV / Van')">
-                <div class="vo-icon">🚐</div><div class="vo-label">Large SUV/Van</div>
-              </div>
+            <div class="vehicle-grid-new">
+
+              <button class="vehicle-card-new" onclick="selectVehicle(this,'Sedan')">
+                <div class="vc-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M3 16l1-5c.3-1.2 1.3-2 2.5-2h11c1.2 0 2.2.8 2.5 2l1 5"/>
+                    <circle cx="7.5" cy="16.5" r="1.5"/>
+                    <circle cx="16.5" cy="16.5" r="1.5"/>
+                  </svg>
+                </div>
+                <h3>Sedan</h3>
+                <p>Small • Coupe • Standard</p>
+              </button>
+
+              <button class="vehicle-card-new" onclick="selectVehicle(this,'SUV / Truck')">
+                <div class="vc-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2 16l1-6c.2-1 1-2 2-2h10c1 0 1.8.6 2.2 1.5L19 12h3v4"/>
+                    <circle cx="7" cy="16.5" r="1.5"/>
+                    <circle cx="17" cy="16.5" r="1.5"/>
+                  </svg>
+                </div>
+                <h3>SUV / Truck</h3>
+                <p>Mid-size • Pickups • Crossovers</p>
+              </button>
+
+              <button class="vehicle-card-new" onclick="selectVehicle(this,'Large SUV / Van')">
+                <div class="vc-icon">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M2 16l1-5c.3-1.2 1.3-2 2.5-2h13c1 0 1.8.6 2.2 1.5L21 12h1v4"/>
+                    <circle cx="6.5" cy="16.5" r="1.5"/>
+                    <circle cx="17.5" cy="16.5" r="1.5"/>
+                  </svg>
+                </div>
+                <h3>Large SUV / Van</h3>
+                <p>3-row SUVs • Vans • Large</p>
+              </button>
+
             </div>
           </div>
           <div class="form-group">
@@ -679,7 +763,7 @@ footer{background:var(--navy-mid);border-top:1px solid var(--border);padding:60p
   }
 
   function selectVehicle(el, val) {
-    document.querySelectorAll('.vehicle-option').forEach(o => o.classList.remove('selected'));
+    document.querySelectorAll('.vehicle-card-new').forEach(o => o.classList.remove('selected'));
     el.classList.add('selected'); selectedVehicle = val;
   }
 
